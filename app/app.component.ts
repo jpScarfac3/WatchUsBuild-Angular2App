@@ -1,19 +1,26 @@
 import { Component } from '@angular/core';
-import { RacesComponent } from './races.component';
-import { RaceService } from './race.service';
 import { HTTP_PROVIDERS } from '@angular/http';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({
   selector: 'racing-app',
   template: `
-<header class="container">
-  <h1>{{heading}}</h1>
-</header>
-<my-races></my-races>
-`,
-  directives: [RacesComponent],
-  providers:[RaceService, HTTP_PROVIDERS]
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a [routerLink]="['']">About</a></li>
+            <li><a [routerLink]="['/schedule']">Schedule</a></li>
+            <li><a [routerLink]="['/scoreboard']">Scoreboard</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main><router-outlet></router-outlet></main>
+  `,
+  directives: [ROUTER_DIRECTIVES],
+  providers:[HTTP_PROVIDERS]
 })
 export class AppComponent {
-  heading = "Ultra Racing Schedule"
+
 }

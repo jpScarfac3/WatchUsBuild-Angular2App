@@ -9,19 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var races_component_1 = require('./races.component');
-var race_service_1 = require('./race.service');
 var http_1 = require('@angular/http');
+var router_1 = require('@angular/router');
 var AppComponent = (function () {
     function AppComponent() {
-        this.heading = "Ultra Racing Schedule";
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'racing-app',
-            template: "\n<header class=\"container\">\n  <h1>{{heading}}</h1>\n</header>\n<my-races></my-races>\n",
-            directives: [races_component_1.RacesComponent],
-            providers: [race_service_1.RaceService, http_1.HTTP_PROVIDERS]
+            template: "\n    <nav class=\"navbar navbar-default\">\n      <div class=\"container-fluid\">\n        <div class=\"navbar-header\">\n          <ul class=\"nav navbar-nav navbar-right\">\n            <li><a [routerLink]=\"['']\">About</a></li>\n            <li><a [routerLink]=\"['/schedule']\">Schedule</a></li>\n            <li><a [routerLink]=\"['/scoreboard']\">Scoreboard</a></li>\n          </ul>\n        </div>\n      </div>\n    </nav>\n    <main><router-outlet></router-outlet></main>\n  ",
+            directives: [router_1.ROUTER_DIRECTIVES],
+            providers: [http_1.HTTP_PROVIDERS]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

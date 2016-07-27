@@ -53,6 +53,7 @@ var RacesComponent = (function () {
         core_1.Component({
             selector: 'my-races',
             templateUrl: 'app/races.component.html',
+            providers: [race_service_1.RaceService],
             styleUrls: ['app/races.component.css']
         }), 
         __metadata('design:paramtypes', [race_service_1.RaceService])
